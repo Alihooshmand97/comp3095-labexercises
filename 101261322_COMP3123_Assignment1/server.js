@@ -16,7 +16,10 @@ app.use('/api/v1/emp', employeeRoutes);  // Employee routes
 mongoose.connect('mongodb://localhost:27017/comp3123_assignment1', {
     useNewUrlParser: true,
     useUnifiedTopology: true,
-});
+})
+    .then(() => console.log('MongoDB connected successfully'))
+    .catch((err) => console.error('MongoDB connection error:', err));
+
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`Server is running on port ${PORT}`));
